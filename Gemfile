@@ -9,6 +9,9 @@ gem 'bootstrap-sass', '~> 3.1.1'
 # Use Devise user authentication
 gem 'devise'
 
+# Use Figaro to store sensitive data, like API keys and passwords
+gem 'figaro'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
