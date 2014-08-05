@@ -12,6 +12,9 @@ gem 'devise'
 # Use Figaro to store sensitive data, like API keys and passwords
 gem 'figaro'
 
+# Use Faker to auto generate fake data
+gem 'faker'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
