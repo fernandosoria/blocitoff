@@ -1,3 +1,3 @@
-every 1.minutes do
-  rake 'delete_todos'
+every 2.minutes do
+  rake 'delete_todos', :environment
 end
