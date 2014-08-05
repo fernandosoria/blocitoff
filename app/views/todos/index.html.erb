@@ -1,0 +1,14 @@
+<h2>My Todo List</h2>
+<div class="row">
+  <% @todos.each do |todo| %>
+    <div class="col-md-8">
+      <div class="alert alert-info">
+        <ul class="list-inline">
+          <li><span class="glyphicon glyphicon-unchecked"></span></li>
+          <li><%= todo.description %></li>
+          <li class="pull-right"><%= pluralize(todo.time_till_delete, 'day') %> left</li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>
