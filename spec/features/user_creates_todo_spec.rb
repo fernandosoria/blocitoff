@@ -6,6 +6,6 @@ describe 'User creates todo' do
     fill_in 'Description', with: 'Pay utilities bill'
     click_button 'Save'
 
-    expect(page).to have_content('Pay utilities bill')
+    expect(page).to have_content('Your new Todo was saved.')
   end
 end

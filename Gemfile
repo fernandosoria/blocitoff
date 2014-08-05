@@ -15,6 +15,9 @@ gem 'figaro'
 # Use Faker to auto generate fake data
 gem 'faker'
 
+# Use Whenever to automate cron jobs
+gem 'whenever', :require => false
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
