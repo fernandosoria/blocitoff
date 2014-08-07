@@ -6,5 +6,7 @@ Blocitoff::Application.routes.draw do
   
   post '/todos/:id/complete', to: 'todos#complete'
 
+  get 'about' => 'welcome#about'
+
   root to: "welcome#index"
 end
