@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805162457) do
+ActiveRecord::Schema.define(version: 20140806165221) do
 
   create_table "todos", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "completed"
   end
 
   add_index "todos", ["user_id"], name: "index_todos_on_user_id"

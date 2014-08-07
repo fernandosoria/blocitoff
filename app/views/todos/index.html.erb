@@ -1,14 +1,27 @@
 <h2>My Todo List</h2>
 <div class="row">
   <% @todos.each do |todo| %>
-    <div class="col-md-8">
-      <div class="alert alert-info">
+    <div class="col-md-8 todo-container" id="todo-<%= todo.id %>">
+    <% if todo.completed %>
+      <div class="alert alert-warning todo-alert">
         <ul class="list-inline">
-          <li><span class="glyphicon glyphicon-unchecked"></span></li>
+          <li><span class="glyphicon glyphicon-check todo-checkbox"></span></li>
+          <li><s><%= todo.description %></s></li>
+          <li class="pull-right"><s><%= pluralize(todo.time_till_delete, 'day') %> left</s></li>
+    <% else %>
+      <div class="alert alert-info todo-alert">
+        <ul class="list-inline">
+          <li><span class="glyphicon glyphicon-unchecked todo-checkbox"></span></li>
           <li><%= todo.description %></li>
           <li class="pull-right"><%= pluralize(todo.time_till_delete, 'day') %> left</li>
+    <% end %>
         </ul>
       </div>
     </div>
   <% end %>
+</div>
+<div class="row">
+  <div class="col-md-8">
+      <%= link_to "Create new Todo", new_todo_path %>
+  </div>
 </div>

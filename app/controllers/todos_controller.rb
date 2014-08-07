@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @todos = current_user.todos.all
   end
@@ -18,13 +20,19 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo = current_user.todos.find(params[:id])
+    @todo = Todo.find(params[:id])
 
-    if @todo.destroy?
-      redirect_to todos_path, notice: 'Todo has been removed.'
+    if @todo.destroy
+      redirect_to todos_path, notice: 'Todo item has been removed.'
     else
       redirect_to todos_path, error: 'There was an error removing the Todo item.  Please try again.'
     end    
+  end
+
+  def complete
+    @todo = Todo.find(params[:id])
+    @todo.update_attributes(completed: 'true')
+    render :nothing => true
   end
 
   private
